@@ -1,0 +1,47 @@
+.feed{
+    margin: 1vh auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, auto);
+    grid-row-gap: auto;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.image{
+    max-width: 450px;
+    align-self: start;
+    object-position: center;
+    object-fit: cover;
+}
+
+.blur-load{
+    background-position: center;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 1440px){
+    .image{
+        max-width: 350px;
+    }
+}
+
+@media only screen and (max-width: 1278px){
+    .image{
+        max-width: 275px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .image{
+        max-width: 200px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .image{
+        max-width: 150px;
+    }
+}
+
+
