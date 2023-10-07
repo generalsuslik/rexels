@@ -18,5 +18,17 @@ body{
     background-color: var(--mainColorLight);
 }
 
+::-webkit-scrollbar {
+    background-color: #333;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(133, 133, 133);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+}
+
 
 

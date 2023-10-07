@@ -1,4 +1,3 @@
-// import { Component } from "react
 import { useState } from "react";
 
 

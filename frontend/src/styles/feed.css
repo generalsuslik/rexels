@@ -1,21 +1,28 @@
 .feed{
-    margin: 1vh auto;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-    /* grid-row-gap: unset; */
-    /* grid-auto-rows: minmax(100px, auto); */
-    grid-row-end: auto;
-    justify-items: stretch;
-    align-items: stretch;
-    align-content: start;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  margin-right: 20px;
 }
 
-.image{
+.column{
+    width: fit-content;
+}
+
+.image-item{
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.image-item .image{
     width: 100%;
-    
-    object-fit: cover;
-    object-position: center;
+    height: auto;
+}
+
+.icon-container{
+    font-size: 2.8rem;
+    color: #ffffff;
+    cursor: pointer;
+    position: absolute;
 }
 
 .image:hover{
@@ -32,6 +39,11 @@
 @media only screen and (max-width: 1440px){
     .image{
         max-width: 350px;
+    }
+
+    .image-item{
+        padding-top: 10px;
+        padding-left: 10px;
     }
 }
 
