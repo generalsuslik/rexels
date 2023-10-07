@@ -2,22 +2,31 @@
     margin: 1vh auto;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(3, auto);
-    grid-row-gap: auto;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    /* grid-row-gap: unset; */
+    /* grid-auto-rows: minmax(100px, auto); */
+    grid-row-end: auto;
     justify-items: stretch;
     align-items: stretch;
+    align-content: start;
 }
 
 .image{
-    max-width: 450px;
-    align-self: start;
-    object-position: center;
+    width: 100%;
+    
     object-fit: cover;
+    object-position: center;
+}
+
+.image:hover{
+    filter: brightness(65%);
 }
 
 .blur-load{
+    margin: 1.1rem;
     background-position: center;
     background-size: cover;
+    height: fit-content;
 }
 
 @media only screen and (max-width: 1440px){

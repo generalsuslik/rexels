@@ -15,7 +15,6 @@ function App() {
     <div>
       <Navbar />
       <Feed />
-      {/* <Green /> */}
     </div>
   );
 }

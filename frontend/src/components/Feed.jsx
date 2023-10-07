@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
 const Feed = () => {
@@ -15,14 +16,14 @@ const Feed = () => {
             })
     }, []);
 
-    const baseUrl = "http://127.0.0.1:8000"
-
+    const baseUrl = "http://127.0.0.1:8000";
 
     return (
         <div className='feed'>
             {photos.map((photo) => (
-                <div className='blur-load'>
-                    <img src={`${baseUrl}${photo.image}`} className='image' alt='sss' loading='lazy' />
+                <div className='blur-load' key={photo.id}>
+                    {/* <img src={`${baseUrl}${photo.image}`} className='image' alt='sss' loading='lazy'/> */}
+                    <LazyLoadImage src={`${baseUrl}${photo.image}`} className='image' loading='lazy' />
                 </div>
             ))}
         </div>
