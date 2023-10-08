@@ -3,7 +3,7 @@
 }
 
 .footer{
-    background-color: #2d2d32;
+    background-color: #222227;
 }
 
 .sb__footer{
@@ -41,7 +41,7 @@ a{
     flex-direction: row;
 }
 
-.socialmedia i{
+.socialmedia a{
     color: white;
     font-size: 2rem;
     padding-left: 0.7rem;

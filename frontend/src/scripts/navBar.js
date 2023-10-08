@@ -1,4 +1,5 @@
-const header = document.querySelector('#header');
+const hero = document.querySelector('.hero');
+console.log(hero.clientHeight)
 
 
 window.onscroll = function(){

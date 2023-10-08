@@ -42,11 +42,12 @@ const Footer = () => {
                         </a>
                     </div>
                     <div className="sb__footer-links_div">
-                        <h4>Coming on soon</h4>
+                        <h4>Our social</h4>
                         <div className="socialmedia">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-linkedin"></i>
-                            <i class="fa-brands fa-telegram"></i>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                            <a href='https://github.com/generalsuslik' target='_blank'><i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
                 </div>

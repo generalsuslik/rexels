@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react';
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import '../styles/feed.css';
 
 
 const Feed = () => {
@@ -18,12 +18,10 @@ const Feed = () => {
 
     const baseUrl = "http://127.0.0.1:8000";
 
+    // Making 3 columns of photos. Photos are already sorted by likes on each photo 
     let column1 = photos.filter((element, index) => index % 3 === 0);
     let column2 = photos.filter((element, index) => index % 3 === 1);
     let column3 = photos.filter((element, index) => index % 3 === 2);
-    let index = 0;
-
-    console.log(column1)
 
     return (
         <div className='feed'>
@@ -32,7 +30,7 @@ const Feed = () => {
                     <div className='image-item'>
                         <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image' alt='sss' loading='lazy'/>
                         <div className='icon-container'>
-                            <i class="fa-solid fa-square-heart like-icon"/>
+                            <i class="fa-solid fa-heart"></i>
                         </div>
                     </div>
                 ))}

@@ -1,14 +1,19 @@
 import { useState } from "react";
+import '../styles/navbar.css';
 
 
 const Navbar = () => {
 
+    // transform hamburger menu button to X and the opposite
     const [clicked, setClicked] = useState(false);
     const handleClick = () => setClicked(!clicked);
 
+    // Change navbar color depending on hero's height
+    const hero = document.querySelector('.hero');
+    
     const [color, setColor] = useState(false);
     const changeColor = () => {
-        if (window.scrollY >= 650){
+        if (window.scrollY >= hero.clientHeight - 25){
             setColor(true);
         } else {
             setColor(false);
