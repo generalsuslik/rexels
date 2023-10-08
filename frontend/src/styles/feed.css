@@ -8,6 +8,32 @@
     width: fit-content;
 }
 
+.skeleton{
+    opacity: .7;
+    animation: skeleton-loading 1s linear infinite alternate;
+    -webkit-animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading{
+    0%{
+        background-color: hsl(206, 6%, 24%);
+    }
+
+    100%{
+        background-color: hsl(206, 6%, 45%);
+    }
+}
+
+@-webkit-keyframes skeleton-loading{
+    0%{
+        background-color: hsl(206, 6%, 24%);
+    }
+
+    100%{
+        background-color: hsl(206, 6%, 45%);
+    }
+}
+
 .image-item{
     padding-top: 15px;
     padding-left: 15px;
@@ -21,16 +47,47 @@
 
 .icon-container{
     position: absolute;
-    right: 3%;
-    top: 2%;
+    right: 12px;
+    top: 16px;
     font-size: 1.8rem;
+    color: #ffffff;
+    display: none;
+}
+
+.icon-container span{
+    margin-left: 12px;
+}
+
+.icon-container i{
+    padding: 5px;
+    z-index: 2;
+}
+
+.icon-container i:hover{
+    color: red;
+}
+
+.author-conatainer{
+    position: absolute;
+    left: 20px;
+    bottom: 16px;
+    font-size: 1.2rem;
     color: #ffffff;
     cursor: pointer;
     display: none;
+    z-index: 2;
 }
 
 .image:hover{
     filter: brightness(65%);
+}
+
+.image:hover + .icon-container{
+    display: block;
+}
+
+.image:hover + .author-conatainer{
+    display: block;
 }
 
 .blur-load{

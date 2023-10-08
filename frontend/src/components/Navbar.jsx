@@ -9,11 +9,11 @@ const Navbar = () => {
     const handleClick = () => setClicked(!clicked);
 
     // Change navbar color depending on hero's height
-    const hero = document.querySelector('.hero');
+    const heroHeight = document.querySelector('.hero') ? document.querySelector('.hero').clientHeight : 500;
     
     const [color, setColor] = useState(false);
     const changeColor = () => {
-        if (window.scrollY >= hero.clientHeight - 25){
+        if (window.scrollY >= heroHeight - 25){
             setColor(true);
         } else {
             setColor(false);

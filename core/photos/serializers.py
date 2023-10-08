@@ -33,7 +33,7 @@ class PhotoSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = models.Photo
-        fields = '__all__'
+        fields = "__all__"
     
     def get_image_url(self, obj):
         return obj.image.url

@@ -3,9 +3,9 @@
 Free photos website like Pexels, Unsplash etc
 
 Technologies:
-    -Python3 Django, DRF
-    -React.JS
-    -CSS
+    Django, DRF,
+    React.JS,
+    CSS
 
 <h2>Linux:</h2>
 Set up the environment
