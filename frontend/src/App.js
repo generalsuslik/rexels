@@ -1,9 +1,8 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from './components/Navbar';
 import Feed from './components/Feed';
-import Footer from './components/Footer';
+import Login from './components/Login';
 
 import './styles/style.css';
 
@@ -11,12 +10,11 @@ import './styles/style.css';
 function App() {
   return (
     <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
-          <Route path='/' element={<Feed />} />
+          <Route path='/' element={<Feed />}/>
+          <Route path='/log-in' element={<Login />} />
         </Routes>
-        <br/>
-        <Footer />
     </div>
   );
 }

@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 
+import Hero from './Hero';
+import Footer from './Footer';
+
 import '../styles/feed.css';
 
 
@@ -25,42 +28,47 @@ const Feed = () => {
     let column3 = photos.filter((_, index) => index % 3 === 2);
 
     return (
-        <div className='feed'>
-            <div className='column column1'>
-                {column1.map((photo) => (
-                    <div className='image-item'>
-                        <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
-                        <div className='icon-container'>
-                            <i class="fa-solid fa-bookmark"></i>
-                            <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
+        <> 
+            <Hero />
+            <div className='feed'>
+                <div className='column column1'>
+                    {column1.map((photo) => (
+                        <div className='image-item'>
+                            <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
+                            <div className='icon-container'>
+                                <i class="fa-solid fa-bookmark"></i>
+                                <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
+                            </div>
+                            <div className='author-conatainer'>
+                                <h4>{photo.user.username}</h4>
+                            </div>
                         </div>
-                        <div className='author-conatainer'>
-                            <h4>{photo.user.username}</h4>
+                    ))}
+                </div>
+                <div className='column column2'>
+                    {column2.map((photo) => (
+                        <div className='image-item'>
+                            <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
+                            <div className='icon-container'>
+                                <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+                <div className='column column3'>
+                    {column3.map((photo) => (
+                        <div className='image-item'>
+                            <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
+                            <div className='icon-container'>
+                                <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className='column column2'>
-                {column2.map((photo) => (
-                    <div className='image-item'>
-                        <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
-                        <div className='icon-container'>
-                            <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-            <div className='column column3'>
-                {column3.map((photo) => (
-                    <div className='image-item'>
-                        <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
-                        <div className='icon-container'>
-                            <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+            <br/>
+            <Footer />
+        </>
     );
 }
 

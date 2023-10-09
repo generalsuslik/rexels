@@ -1,6 +1,8 @@
 import { useState } from "react";
 import '../styles/navbar.css';
 
+import registration from "../utils/registration";
+
 
 const Navbar = () => {
 
@@ -22,39 +24,38 @@ const Navbar = () => {
 
     window.addEventListener('scroll', changeColor);
 
+    const currentUser = registration.getCurrentUser();
+    console.log(currentUser);
+
     return (
-        <div className="hero" id="hero">
-            <header className={color ? "header-black" : "header"} id="#header">
-                <a href="/" className="logo">Rexels</a>
+        <header className={color ? "header-black" : "header"} id="#header">
+            <a href="/" className="logo">Rexels</a>
 
-                <div className="menu-icons" onClick={handleClick}>
-                    <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
-                </div>
-                    
-                <form className={color ? "search-bar-black-active search-bar" : "search-bar-black"}>
-                    <input type="text" placeholder="search rexels" name="q"/>
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
+            <div className="menu-icons" onClick={handleClick}>
+                <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
+            </div>
+                
+            <form className={color ? "search-bar-black-active search-bar" : "search-bar-black"}>
+                <input type="text" placeholder="search rexels" name="q"/>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
 
+            {currentUser ? (
                 <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 
                     <a href="#">Explore</a>
                     <a href="#upload">Upload</a>
-                    <a href="#log-in">Log In</a>
+                    <a href="#log-in" onClick={registration.logout()}>Log Out</a>
+                    <a href="#profile">{currentUser.username}</a>
                 </nav>
-            </header>
-
-            <div className="hero-text" onClick={handleClick}>
-                <h1 className="hero-logo">The best free photos</h1>
-                <p>Powered by creators</p>
-            </div>
-
-            <div className="search-bar-container">
-                <form className="search-bar">
-                    <input type="text" placeholder="search rexels" name="q"/>
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-        </div>
+            ) : (
+                <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 
+                    <a href="#">Explore</a>
+                    <a href="#upload">Upload</a>
+                    <a href="http://127.0.0.1:3000/log-in/">Log In</a>     
+                </nav>
+            )}
+            
+        </header>
     );
 }
 

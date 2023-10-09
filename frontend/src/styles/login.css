@@ -1,0 +1,180 @@
+.background{
+    width: 100%;
+    height: 100vh;
+    background: url('../images/sunset2.avif') no-repeat;
+}
+
+.login-container{
+    margin-top: 50px;
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url('../images/sunset2.avif') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+.login-container .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 58%;
+    height: 100%;
+    padding: 80px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background: transparent;
+}
+
+.content .logo{
+    font-size: 4.7rem;
+}
+
+.text h4{
+    font-size: 2rem;
+    margin: 20px 0;
+    line-height: 1;
+}
+
+.social-icons a{
+    margin-right: 20px;
+}
+
+.social-icons a i{
+    font-size: 2rem;
+}
+
+.social-icons a:hover i{
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.login-container .logreg-box{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 58%);
+    height: 100%;
+}
+
+.logreg-box .form-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    color: white;
+}
+
+.form-box h2{
+    font-size: 2.7rem;
+}
+
+.form-box .input-box{
+    position: relative;
+    width: 340px;
+    height: 50px;
+    border-bottom: 2px solid white;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 450;
+    padding-right: 2rem;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -0.75rem
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 0;
+    top: 13px;
+    font-size: 1.2rem;
+}
+
+.form-box .remember-forgot{
+    font-size: 1.1rem;
+    font-weight: 450px;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: white;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: white;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.button{
+    width: 100%;
+    height: 45px;
+    background: #a81743;
+    border: none;
+    outline: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+}
+
+.button:hover{
+    background: #811233;
+}
+
+.form-box .login-register{
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.login-register p a{
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
