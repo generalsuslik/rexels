@@ -44,8 +44,8 @@ const Navbar = () => {
                 <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 
                     <a href="#">Explore</a>
                     <a href="#upload">Upload</a>
-                    <a href="#log-in" onClick={registration.logout()}>Log Out</a>
-                    <a href="#profile">{currentUser.username}</a>
+                    <a href="#profile">Profile{currentUser.username}</a>
+                    <a href="http://127.0.0.1:3000/log-out">Log Out</a>
                 </nav>
             ) : (
                 <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 

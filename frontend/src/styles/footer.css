@@ -41,11 +41,16 @@ a{
     flex-direction: row;
 }
 
-.socialmedia a{
+.socialmedia a i{
     color: white;
     font-size: 2rem;
     padding-left: 0.7rem;
     justify-content: center;
+}
+
+.socialmedia a:hover{
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
 }
 
 .sb__footer-links_div h4{

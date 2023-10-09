@@ -64,13 +64,13 @@ const Login = () => {
                             <div className="input-box">
                                 {/* <span className="icon"><i class="fa-solid fa-envelope"></i></span> */}
                                 <span className="icon"><i class="fa-solid fa-user"></i></span>
-                                <input type="text" required onChange={e => setUsername(String(e.target.value))} value={String(username)}/>
+                                <input type="text reset" required placeholder="" onChange={e => setUsername(e.target.value)} value={username}/>
                                 <label>Username</label>
                             </div>
 
                             <div className="input-box">
                                 <span className="icon"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" required onChange={e => setPassword(String(e.target.value))} value={String(password)}/>
+                                <input type="password reset" required placeholder="" onChange={e => setPassword(e.target.value)} value={password}/>
                                 <label>Password</label>
                             </div>
 

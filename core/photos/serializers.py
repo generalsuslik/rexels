@@ -1,8 +1,21 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.tokens import Token
 
 from . import models
+
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user) -> Token:
+        token = super().get_token(user)
+        
+        token['username'] = str(user.username)
+        token['password'] = str(user.password)
+        
+        return token
 
 
 class DummyUserSerializer(serializers.ModelSerializer):
