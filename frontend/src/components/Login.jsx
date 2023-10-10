@@ -5,7 +5,8 @@ import Navbar from "./Navbar";
 
 import registration from "../utils/registration";
 
-import '../styles/login.css'
+import '../styles/login.css';
+import clearForm from "../scripts/Forms";
 
 
 const Login = () => {
@@ -64,13 +65,13 @@ const Login = () => {
                             <div className="input-box">
                                 {/* <span className="icon"><i class="fa-solid fa-envelope"></i></span> */}
                                 <span className="icon"><i class="fa-solid fa-user"></i></span>
-                                <input type="text reset" required placeholder="" onChange={e => setUsername(e.target.value)} value={username}/>
+                                <input type="text" required onChange={e => setUsername(e.target.value)} value={username}/>
                                 <label>Username</label>
                             </div>
 
                             <div className="input-box">
                                 <span className="icon"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password reset" required placeholder="" onChange={e => setPassword(e.target.value)} value={password}/>
+                                <input type="password" required onChange={e => setPassword(e.target.value)} value={password}/>
                                 <label>Password</label>
                             </div>
 
@@ -83,13 +84,20 @@ const Login = () => {
                                 {loading && (
                                     <span className="spinner-border spinner-border-sm"></span>
                                 )}
-                                    Sign In
+                                    Log In
                             </button>
 
                             <div className="login-register">
                                 <p>Don't have an account? <a href="#sign-up" className="register-link">Sign Up</a></p>
                             </div>
                         </form>
+                        {message && (
+                            <div className="form-group">
+                                <div className="alert alert-danger">
+                                    {message}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

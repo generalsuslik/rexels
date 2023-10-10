@@ -12,7 +12,6 @@ const login = (username, password) => {
         if(res.data.access){
             localStorage.setItem('user', JSON.stringify(res.data));
         }
-        
         return res.data;
     });
 };
