@@ -18,8 +18,6 @@ def sign_up(request):
     email = request.data.get("email", None)
     password = request.data.get("password", None)
     username = request.data.get("username", None)
-    first_name = request.data.get("first_name", None)
-    last_name = request.data.get("last_name", None)
     
     if not (email and password and username):
         return Response({'error': 'Please provide all required fields'}, status=status.HTTP_400_BAD_REQUEST)
@@ -28,8 +26,7 @@ def sign_up(request):
         return Response({'error': 'User with this email or username already exists'}, status=status.HTTP_400_BAD_REQUEST)
     
     hashed_password = make_password(password=password)
-    user = User.objects.create(email=email, username=username, password=hashed_password, 
-                               first_name=first_name, last_name=last_name)
+    user = User.objects.create(email=email, username=username, password=hashed_password)
     
     return Response({'success': 'User signed up successfully', 'token': 'your token here'}, status=status.HTTP_201_CREATED)
 
