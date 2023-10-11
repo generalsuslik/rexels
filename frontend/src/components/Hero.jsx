@@ -1,11 +1,6 @@
-import Navbar from "./Navbar";
-
 const Hero = () => {
     return (
         <div className="hero" id="hero">
-            
-            <Navbar />
-
             <div className="hero-text">
                 <h1 className="hero-logo">The best free photos</h1>
                 <p>Powered by creators</p>

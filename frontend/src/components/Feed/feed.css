@@ -8,6 +8,11 @@
     width: fit-content;
 }
 
+.column4,
+.column5{
+    display: none;
+}
+
 .skeleton{
     opacity: .7;
     animation: skeleton-loading 1s linear infinite alternate;
@@ -122,8 +127,24 @@
 
 @media only screen and (max-width: 768px){
     .image{
-        max-width: 150px;
+        max-width: 250px;
+    }
+
+    .column1,
+    .column2,
+    .column3{
+        display: none;
+    }
+
+    .column4,
+    .column5{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feed{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        margin-right: 10px;
     }
 }
-
-

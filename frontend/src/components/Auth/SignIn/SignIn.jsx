@@ -1,15 +1,13 @@
-import axios from "axios";
 import { useState } from "react";
 
-import Navbar from "./Navbar";
+import Navbar from "../../../common/Navbar/Navbar";
 
-import registration from "../utils/registration";
+import registration from "../../../utils/registration";
 
-import '../styles/login.css';
-import clearForm from "../scripts/Forms";
+import './signin.css';
 
 
-const Login = () => {
+const SignIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(true);
@@ -60,7 +58,7 @@ const Login = () => {
                 <div className="logreg-box">
                     <div className="form-box login">
                         <form onSubmit={handleLogin}>
-                            <h2>Log In</h2>
+                            <h2>Sign In</h2>
 
                             <div className="input-box">
                                 {/* <span className="icon"><i class="fa-solid fa-envelope"></i></span> */}
@@ -84,7 +82,7 @@ const Login = () => {
                                 {loading && (
                                     <span className="spinner-border spinner-border-sm"></span>
                                 )}
-                                    Log In
+                                    Sign In
                             </button>
 
                             <div className="login-register">
@@ -105,4 +103,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default SignIn;

@@ -1,19 +1,16 @@
 .logout-container{
-    width: 100%;
-    height: 100vh;
-    background: url('../images/sunset2.avif') no-repeat;
-}
-
-.logout-container .content{
-    position: absolute;
-    width: 75%;
-    height: 75%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: url('../images/sunset2.avif') no-repeat;
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
     color: white;
 }
+
+.logout-container .content .text{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.form-box form{
+    width: 340px;
+    margin-bottom: 30px;
+}
+
+
+

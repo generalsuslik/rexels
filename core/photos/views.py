@@ -1,13 +1,37 @@
-from django.shortcuts import render
 from django.http import Http404
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from . import serializers
 from . import models
+
+
+@api_view(["POST"])
+def sign_up(request):
+    email = request.data.get("email", None)
+    password = request.data.get("password", None)
+    username = request.data.get("username", None)
+    first_name = request.data.get("first_name", None)
+    last_name = request.data.get("last_name", None)
+    
+    if not (email and password and username):
+        return Response({'error': 'Please provide all required fields'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    if User.objects.filter(email=email, username=username).exists():
+        return Response({'error': 'User with this email or username already exists'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    hashed_password = make_password(password=password)
+    user = User.objects.create(email=email, username=username, password=hashed_password, 
+                               first_name=first_name, last_name=last_name)
+    
+    return Response({'success': 'User signed up successfully', 'token': 'your token here'}, status=status.HTTP_201_CREATED)
 
 
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -61,6 +85,22 @@ class PhotoDetail(APIView):
         photo.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    
+class UserList(APIView):
+    def get(self, request):
+        users = User.objects.all()
+        serializer = serializers.UserSerializer(users, many=True)
+        
+        return Response(serializer.data)
+    
+    def post(self, request):
+        serializer = serializers.UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     
 class ProfileList(APIView):

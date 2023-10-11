@@ -1,7 +1,10 @@
 import { useState } from "react";
-import '../styles/navbar.css';
+import './navbar.css'
+import '../../styles/logout.css';
 
-import registration from "../utils/registration";
+import Modal from "../Modal/Modal";
+
+import registration from "../../utils/registration";
 
 
 const Navbar = () => {
@@ -25,9 +28,12 @@ const Navbar = () => {
     window.addEventListener('scroll', changeColor);
 
     const currentUser = registration.getCurrentUser();
-    console.log(currentUser);
+
+    // Log-out Modal
+    const [modalActive, setModalActive] = useState(false);
 
     return (
+        <>
         <header className={color ? "header-black" : "header"} id="#header">
             <a href="/" className="logo">Rexels</a>
 
@@ -45,17 +51,43 @@ const Navbar = () => {
                     <a href="#">Explore</a>
                     <a href="#upload">Upload</a>
                     <a href="#profile">Profile{currentUser.username}</a>
-                    <a href="http://127.0.0.1:3000/log-out">Log Out</a>
+                    <a onClick={() => setModalActive(true)}>Log Out</a>
                 </nav>
             ) : (
                 <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 
                     <a href="#">Explore</a>
                     <a href="#upload">Upload</a>
-                    <a href="http://127.0.0.1:3000/log-in/">Log In</a>     
+                    <a href="http://127.0.0.1:3000/sign-in-up/">Sign In</a>     
                 </nav>
             )}
-            
         </header>
+            <Modal active={modalActive} setActive={setModalActive}>
+                <div className="form-box">
+                    <div className="logout-container">
+                        <div className="content">
+                            <div className="text">
+                                <h4>Log out</h4>
+                            </div>
+                            
+                            <div className="logreg-box logout">
+                                <div className="form-box">
+                                    <form onSubmit={registration.logout}>
+                                        <button type="submit" className="button">Log Out</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div className="social-icons">
+                                <a href="https://instagram.com/generalsuslik?igshid=OGQ5ZDc2ODk2ZA==" target='_blank'><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" target='_blank'><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#" target='_blank'><i class="fa-brands fa-telegram"></i></a>
+                                <a href='https://github.com/generalsuslik' target='_blank'><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
+        </>
     );
 }
 
