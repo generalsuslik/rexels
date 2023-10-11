@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Hero from '../Hero';
 
 import './feed.css';
+import Layout from '../../common/Layout/Layout';
 
 
 const Feed = () => {
@@ -31,7 +32,7 @@ const Feed = () => {
     let column5 = photos.filter((_, index) => index % 2 === 1);
 
     return (
-        <> 
+        <Layout> 
             <Hero />
             <div className='feed'>
                 <div className='column column1'>
@@ -99,7 +100,7 @@ const Feed = () => {
                     ))}
                 </div>
             </div>
-        </>
+        </Layout>
     );
 }
 

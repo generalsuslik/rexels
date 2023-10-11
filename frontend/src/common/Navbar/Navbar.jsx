@@ -57,7 +57,7 @@ const Navbar = () => {
                 <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 
                     <a href="#">Explore</a>
                     <a href="#upload">Upload</a>
-                    <a href="http://127.0.0.1:3000/sign-in-up/">Sign In</a>     
+                    <a href="http://127.0.0.1:3000/sign-in-up/">Sign In</a>  
                 </nav>
             )}
         </header>
