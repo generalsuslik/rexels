@@ -1,7 +1,7 @@
 .feed{
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 .column{
@@ -48,6 +48,7 @@
 .image-item .image{
     width: 100%;
     height: auto;
+    border-radius: 12px;
 }
 
 .icon-container{
@@ -69,7 +70,7 @@
 }
 
 .icon-container i:hover{
-    color: red;
+    background: red;
 }
 
 .author-conatainer{

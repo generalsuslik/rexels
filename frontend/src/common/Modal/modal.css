@@ -21,15 +21,19 @@
 
 .modal__content{
     padding: 20px;
-    border-radius: 12px;
-    background-color: rgb(11, 13, 41);
+    border-radius: 18px;
+    background: black;
     transform: scale(0.5);
     transition: .3s all;
     width: 35vw;
-    /* background: transparent; */
-    backdrop-filter: blur(50px);
 }
 
 .modal__content.active{
     transform: scale(1);
+}
+
+.logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

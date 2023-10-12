@@ -3,6 +3,9 @@ import './navbar.css'
 import '../../styles/logout.css';
 
 import Modal from "../Modal/Modal";
+import { DropdownMenu } from "../Dropdown/DropdownMenu/DropdownMenu";
+import { DropdownItem } from "../Dropdown/DropdownItem/DropdownItem";
+import { Line } from "../Line/Line";
 
 import registration from "../../utils/registration";
 
@@ -18,7 +21,7 @@ const Navbar = () => {
     
     const [color, setColor] = useState(false);
     const changeColor = () => {
-        if (window.scrollY >= heroHeight - 25){
+        if (window.scrollY >= heroHeight - heroHeight * 0.25){
             setColor(true);
         } else {
             setColor(false);
@@ -48,14 +51,24 @@ const Navbar = () => {
 
             {currentUser ? (
                 <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 
-                    <a href="#">Explore</a>
+                    <a href="http://127.0.0.1:3000/">Explore</a>
                     <a href="#upload">Upload</a>
-                    <a href="#profile">Profile{currentUser.username}</a>
-                    <a onClick={() => setModalActive(true)}>Log Out</a>
+                    <DropdownMenu color={color} title={'Profile'}>
+                        <DropdownItem link={`#user`} text={currentUser.username} />
+                        <DropdownItem link={`#bookmarks`} text="Bookmarks" />
+                        <Line />
+                        <div className="dropdown-social-icons">
+                            <a href="https://instagram.com/generalsuslik?igshid=OGQ5ZDc2ODk2ZA==" target='_blank'><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" target='_blank'><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" target='_blank'><i class="fa-brands fa-telegram"></i></a>
+                            <a href='https://github.com/generalsuslik' target='_blank'><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </DropdownMenu>
+                    <a className="log-out-a" onClick={() => setModalActive(!modalActive)}>Log Out</a>
                 </nav>
             ) : (
                 <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 
-                    <a href="#">Explore</a>
+                    <a href="http://127.0.0.1:3000/">Explore</a>
                     <a href="#upload">Upload</a>
                     <a href="http://127.0.0.1:3000/sign-in-up/">Sign In</a>  
                 </nav>
@@ -69,7 +82,7 @@ const Navbar = () => {
                                 <h4>Log out</h4>
                             </div>
                             
-                            <div className="logreg-box logout">
+                            <div className="logout">
                                 <div className="form-box">
                                     <form onSubmit={registration.logout}>
                                         <button type="submit" className="button">Log Out</button>

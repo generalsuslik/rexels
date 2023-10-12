@@ -31,6 +31,8 @@ const SignIn = () => {
                 setMessage(resMessage);
             }
         );
+        setUsername('');
+        setPassword('');
     };
 
     return (

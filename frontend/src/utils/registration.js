@@ -3,17 +3,21 @@ import axios from "axios";
 
 const baseUrl = 'http://127.0.0.1:8000/api/';
 
-const login = (username, password) => {
-    return axios.post(`${baseUrl}token/`, {
-        username,
-        password
-    })
-    .then(res => {
-        if(res.data.access){
-            localStorage.setItem('user', JSON.stringify(res.data));
+const login = async (username, password) => {
+    try {
+        const res = await axios.post(`${baseUrl}token/`, {
+            username,
+            password
+        });
+        if (res.data.access) {
+            let user = {"username": username, ...res.data}
+            localStorage.setItem('user', JSON.stringify(user));
         }
+        
         return res.data;
-    });
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 const logout = () => {

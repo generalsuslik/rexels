@@ -21,6 +21,7 @@
     font-size: 4.5rem;
     font-weight: 800;
     background: #ffffff;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -29,6 +30,7 @@
     font-size: 2.7rem;
     font-weight: 500;
     background: #ffffff;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -138,6 +140,12 @@
     font-weight: 700;
 }
 
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .navbar a{
     font-size: 1.15rem;
     color: #fff;
@@ -160,6 +168,21 @@
     display: none;
 }
 
+.log-out-a{
+    cursor: pointer;
+}
+
+@media (max-width: 1440px) {
+    .navbar a{
+        font-size: 1.1rem;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 1.3rem;
+        padding: .5rem .7rem;
+    }
+}
+
 @media (max-width: 992px) {
     .header{
         padding: 1.3rem 5%;
@@ -169,6 +192,7 @@
         font-size: 3rem;
         font-weight: 700;
         background: #ffffff;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -177,6 +201,7 @@
         font-size: 1.7rem;
         font-weight: 400;
         background: #ffffff;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -186,6 +211,24 @@
         position: absolute;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    .navbar a{
+        font-size: .8rem;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 400;
+        margin-left: 1rem;
+        padding: .3rem .5rem;
+    }
+
+    .search-bar-black-active.search-bar{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .search-bar-black-active input {
+        width: 65%;
     }
 }
 
@@ -199,6 +242,7 @@
         font-size: 1.7rem;
         font-weight: 400;
         background: #ffffff;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -207,6 +251,7 @@
         font-size: 1.2rem;
         font-weight: 150;
         background: #ffffff;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -239,7 +284,6 @@
 
     .navbar.active.black a:hover{
         width: 100%;
-        /* background: aqua; */
         background: #a81743;
         color: #000;
         border-radius: 30px;
@@ -277,14 +321,20 @@
         transform: translate(-50%, -50%);
     }
 
-    .search-bar-black-active{
+    .search-bar-black-active.search-bar{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .search-bar-black-active input {
         display: flex;
         height: 40px;
-        margin: 0 40px
+        margin: 0 40px;
+        width: 45%;
     }
 }
 
-@media (max-width: 500px){
+@media (max-width: 540px){
     .header{
         width: 100%;
         position: fixed;
@@ -294,6 +344,7 @@
         font-size: 1.7rem;
         font-weight: 400;
         background: #ffffff;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -302,6 +353,7 @@
         font-size: 1.2rem;
         font-weight: 150;
         background: #ffffff;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }

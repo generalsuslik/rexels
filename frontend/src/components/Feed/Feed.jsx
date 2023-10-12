@@ -41,10 +41,7 @@ const Feed = () => {
                             <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
                             <div className='icon-container'>
                                 <i class="fa-solid fa-bookmark"></i>
-                                <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
-                            </div>
-                            <div className='author-conatainer'>
-                                <h4>{photo.user.username}</h4>
+                                <span>{photo.likes}<i className="fa-solid fa-heart"/></span>
                             </div>
                         </div>
                     ))}
@@ -54,6 +51,7 @@ const Feed = () => {
                         <div className='image-item'>
                             <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
                             <div className='icon-container'>
+                                <i class="fa-solid fa-bookmark"></i>
                                 <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
                             </div>
                         </div>
@@ -64,6 +62,7 @@ const Feed = () => {
                         <div className='image-item'>
                             <img key={photo.id} src={`${baseUrl}${photo.image}`} className='image skeleton' alt='sss' loading='lazy'/>
                             <div className='icon-container'>
+                                <i class="fa-solid fa-bookmark"></i>
                                 <span>{photo.likes}<i class="fa-solid fa-heart"/></span>
                             </div>
                         </div>
