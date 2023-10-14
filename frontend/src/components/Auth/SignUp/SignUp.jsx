@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 
+import Navbar from "../../../common/Navbar/Navbar";
+
 import registration from "../../../utils/registration";
 
 
@@ -28,25 +30,57 @@ const SignUp = () => {
     };
 
     return (
-        <div style={{height: "100vh"}}>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Email:
-                    <input type="email" name="email" required value={email} onChange={(e) => setEmail(e.target.value)}/>
-                </label>
+        <div className="background">
+            <Navbar />
+            <div className="login-container">
+                <div className="content">
+                    <h2 className="logo">Rexels</h2>
+                    <div className="text">
+                        <h4>Welcome to Rexels!</h4>
+                        <p>Access a lot of free, high resolution photos that are shared by professional photographers.</p>
+                    </div>
 
-                <label>
-                    Username:
-                    <input type="text" name="username" required value={username} onChange={(e) => setUsername(e.target.value)}/>
-                </label>
+                    <div className="social-icons">
+                        <a href="https://instagram.com/generalsuslik?igshid=OGQ5ZDc2ODk2ZA==" target='_blank'><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target='_blank'><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" target='_blank'><i class="fa-brands fa-telegram"></i></a>
+                        <a href='https://github.com/generalsuslik' target='_blank'><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
 
-                <label>
-                    Password:
-                    <input type="password" name="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
-                </label>
+                <div className="logreg-box">
+                    <div className="form-box login">
+                        <form onSubmit={handleSubmit}>
+                            <h2>Sign Up</h2>
+                            <div className="input-box">
+                                <span className="icon"><i class="fa-solid fa-envelope"></i></span>
+                                <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}/>
+                                <label>Email</label>
+                            </div>
 
-                <button type="submit">Submit</button>
-            </form>
+                            <div className="input-box">    
+                                <span className="icon"><i class="fa-solid fa-user"></i></span>
+                                <input type="text" required onChange={e => setUsername(e.target.value)} value={username}/>
+                                <label>Username</label>
+                            </div>
+
+                            <div className="input-box">
+                                <span className="icon"><i class="fa-solid fa-lock"></i></span>
+                                <input type="password" required onChange={e => setPassword(e.target.value)} value={password}/>
+                                <label>Password</label>
+                            </div>
+
+                            <button type="submit" className="button">
+                                Sign Up
+                            </button>
+
+                            <div className="login-register">
+                                <p>Back to <a href="http://127.0.0.1:3000/sign-in/" className="register-link">Sign In</a> page</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

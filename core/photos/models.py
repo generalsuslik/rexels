@@ -1,6 +1,7 @@
 import sys
 
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import User
 from django.core.files import File
 from django.core.files.uploadedfile import InMemoryUploadedFile
@@ -14,6 +15,7 @@ class Photo(models.Model):
     image_bad_quality = models.ImageField(upload_to='images/bad_quality/%Y/%m/', null=True, blank=True)
     likes = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    tags = ArrayField(models.CharField(max_length=200), blank=True, null=True)
 
     created_at = models.DateField(auto_now_add=True)
     
@@ -34,8 +36,10 @@ class Photo(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/user_images/%Y/%m/', blank=True, null=True)
     slug = models.SlugField(unique=True)
-    instagram_link = models.URLField(blank=True)
+    social_links = ArrayField(models.CharField(max_length=200), blank=True, null=True)
+    info = models.TextField(blank=True, null=True)
     
     created_at = models.DateField(auto_now_add=True)
     

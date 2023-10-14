@@ -54,7 +54,7 @@ const Navbar = () => {
                     <a href="http://127.0.0.1:3000/">Explore</a>
                     <a href="#upload">Upload</a>
                     <DropdownMenu color={color} title={'Profile'}>
-                        <DropdownItem link={`#user`} text={currentUser.username} />
+                        <DropdownItem link={`http://127.0.0.1:3000/users/${currentUser.username}/`} text={currentUser.username} />
                         <DropdownItem link={`#bookmarks`} text="Bookmarks" />
                         <Line />
                         <div className="dropdown-social-icons">
@@ -70,7 +70,7 @@ const Navbar = () => {
                 <nav className={clicked ? `${color ? "navbar active black" : "navbar active"}` : "navbar"}> 
                     <a href="http://127.0.0.1:3000/">Explore</a>
                     <a href="#upload">Upload</a>
-                    <a href="http://127.0.0.1:3000/sign-in-up/">Sign In</a>  
+                    <a href="http://127.0.0.1:3000/sign-in/">Sign In</a>  
                 </nav>
             )}
         </header>

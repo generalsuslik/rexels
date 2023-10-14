@@ -1,11 +1,45 @@
 import { useState } from "react";
 
 import Navbar from "../../../common/Navbar/Navbar";
+import SignUp from "../SignUp/SignUp";
 
 import registration from "../../../utils/registration";
 
 import './signin.css';
 
+
+const SignInForm = ({ handleLogin, username, setUsername, password, setPassword, loading, setLoading }) => {
+    return (
+        <form onSubmit={handleLogin}>
+            <h2>Sign In</h2>
+
+            <div className="input-box">
+                {/* <span className="icon"><i class="fa-solid fa-envelope"></i></span> */}
+                <span className="icon"><i class="fa-solid fa-user"></i></span>
+                <input type="text" required onChange={e => setUsername(e.target.value)} value={username}/>
+                <label>Username</label>
+            </div>
+
+            <div className="input-box">
+                <span className="icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" required onChange={e => setPassword(e.target.value)} value={password}/>
+                <label>Password</label>
+            </div>
+
+            <div className="remember-forgot">
+                <label><input type="checkbox"/>Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" className="button">
+                {loading && (
+                    <span className="spinner-border spinner-border-sm"></span>
+                )}
+                    Sign In
+            </button>
+        </form>
+    );
+}
 
 const SignIn = () => {
     const [username, setUsername] = useState('');
@@ -34,6 +68,19 @@ const SignIn = () => {
         setUsername('');
         setPassword('');
     };
+
+    const [signInActive, setSignInActive] = useState(true);
+    const [signUpActive, setSignUpActive] = useState(false);
+
+    function handleSignInFormToggling() {
+        setSignInActive(true);
+        setSignUpActive(false);
+    }
+
+    function handleSignUpFormToggling() {
+        setSignInActive(false);
+        setSignUpActive(true);
+    }
 
     return (
 
@@ -88,9 +135,10 @@ const SignIn = () => {
                             </button>
 
                             <div className="login-register">
-                                <p>Don't have an account? <a href="#sign-up" className="register-link">Sign Up</a></p>
+                                <p>Don't have an account? <a href="http://127.0.0.1:3000/sign-up/" className="register-link">Sign Up</a></p>
                             </div>
                         </form>
+                        
                         {message && (
                             <div className="form-group">
                                 <div className="alert alert-danger">
