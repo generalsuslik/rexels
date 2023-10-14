@@ -1,0 +1,51 @@
+.profile__wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.hero__main{
+    margin-bottom: 20px;
+    position: relative;
+    height: fit-content;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+
+.hero__main_image{
+    z-index: 1;
+    display: flex;
+    position: relative;
+}
+
+.hero__main_header{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 500px;
+    width: 100%;
+    height: fit-content;
+    z-index: 2;
+    color: white;
+    background: #202020;
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+}
+
+.name{
+    margin-left: 5.5rem;
+}
+
+.avatar{
+    position: absolute;
+    top: 455px;
+    z-index: 12;
+    margin-left: 20px;
+}
+
+

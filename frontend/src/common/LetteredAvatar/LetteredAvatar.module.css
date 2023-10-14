@@ -1,0 +1,18 @@
+.avatar{
+    display: flex;
+    height: 75px;
+    width: 75px;
+    border-radius: 100px;
+    color: white;
+    margin: auto;
+    z-index: 12;
+    font-size: 1.5rem;
+    font-weight: 450;
+    letter-spacing: .05rem;
+    border: #363636 solid 3px;
+}
+
+.avatar_span{
+    margin: auto;
+    z-index: 12;
+}
