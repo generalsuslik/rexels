@@ -1,43 +1,33 @@
 import classes from './Profile.module.css';
 import { LetteredAvatar } from '../../common/LetteredAvatar/LetteredAvatar';
+import { DropdownItem } from '../../common/Dropdown/DropdownItem/DropdownItem';
+import { DropdownMenu } from '../../common/Dropdown/DropdownMenu/DropdownMenu';
 
 
-export const ProfileHero = ({ profileSlug, backgroundImage, firstName, lastName }) => {
-
-    const backgroundImageUrl = "http://127.0.0.1:8000" + backgroundImage;
+export const ProfileHero = ({ profileSlug, profile, firstName, lastName }) => {
 
     console.log(firstName, lastName);
+    const socialLinks = profile.social_links
 
     return (
-        <div className={classes.hero__main}>
-            <div style={{
-                        backgroundImage: `url(${backgroundImageUrl})`,
-                        backgroundPosition: "center",
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                        height: "550px",
-                    }} className={`${classes.hero__main_image} skeleton`}>
-            </div>
-
-            <div className={classes.avatar}>
-                <LetteredAvatar profileSlug={profileSlug} firstName={firstName} lastName={lastName} />
-            </div>
-
-            <div className={classes.hero__main_header}>
-                <div className={classes.name}>
-                    <h2>{!firstName || !lastName ? 
-                        (
-                            <span>{profileSlug}</span>
-                        ) : (
-                            <span>{firstName} {lastName}</span>
-                        )
-                    }</h2>
-                    <p></p>
+        <div className={classes.hero__mainWrapper}>
+            <div className={classes.hero__main}>
+                <div className={classes.avatar}>
+                    <LetteredAvatar profileSlug={profileSlug} firstName={firstName} lastName={lastName} />
                 </div>
-
-                <form>
-                    <button type='submit'>Edit</button>
-                </form>
+                <div className={classes.user_info}>
+                    <div className={classes.main_info}>
+                        {(firstName || lastName) &&<h1>{firstName} {lastName}</h1>}
+                        {!(firstName || lastName) && <h1>{profileSlug}</h1>}
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At necessitatibus minus sapiente architecto voluptatem quidem blanditiis. Aut maxime eum ratione!</p>
+                        <br />
+                        {socialLinks && <DropdownMenu color={true} title={"Contact"}>
+                            {socialLinks.map(link => (
+                                <DropdownItem link={link} text={"Link"} />
+                            ))}
+                        </DropdownMenu>}
+                    </div>
+                </div>
             </div>
         </div>
     );

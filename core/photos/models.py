@@ -1,37 +1,17 @@
-import sys
-
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import User
-from django.core.files import File
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.utils.text import slugify
-from PIL import Image
-from io import BytesIO
 
 
 class Photo(models.Model):
     image = models.ImageField(upload_to='images/good_quality/%Y/%m/', null=False, blank=False)
-    image_bad_quality = models.ImageField(upload_to='images/bad_quality/%Y/%m/', null=True, blank=True)
     likes = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = ArrayField(models.CharField(max_length=200), blank=True, null=True)
 
     created_at = models.DateField(auto_now_add=True)
-    
-    def save(self, *args, **kwargs):
-        im = Image.open(self.image)
-
-        output = BytesIO()
-
-        im.save(output, format='JPEG', quality=2)
-        output.seek(0)
-
-        self.image_bad_quality = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
-                                        sys.getsizeof(output), None)
-
-        super(Photo, self).save()
-           
     
 
 class Profile(models.Model):

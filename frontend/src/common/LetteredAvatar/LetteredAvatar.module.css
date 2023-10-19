@@ -1,12 +1,18 @@
+:root{
+    --diameter: 135px;
+    --font-size: 2rem;
+}
+
+
 .avatar{
     display: flex;
-    height: 75px;
-    width: 75px;
+    height: var(--diameter);
+    width: var(--diameter);
     border-radius: 100px;
     color: white;
-    margin: auto;
+    margin-left: calc(100% - var(--diameter) - 5%);
     z-index: 12;
-    font-size: 1.5rem;
+    font-size: var(--font-size);
     font-weight: 450;
     letter-spacing: .05rem;
     border: #363636 solid 3px;

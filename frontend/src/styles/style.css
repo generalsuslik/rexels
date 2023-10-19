@@ -12,6 +12,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Titillium Web', sans-serif;
+    z-index: 0;
 }
 
 body{

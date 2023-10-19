@@ -25,7 +25,6 @@ const logout = () => {
 
 const getCurrentUser = () => {
     if(!localStorage.getItem('user')){
-        console.log('user = null');
         return null;
     }
 

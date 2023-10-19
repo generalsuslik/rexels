@@ -1,4 +1,5 @@
 import './feed.css';
+import processImages from "../../scripts/processImages"
 
 
 export const FeedComponent = ({photos}) => {

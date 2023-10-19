@@ -1,4 +1,5 @@
 .feed{
+  margin-top: auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   margin-right: 15px;
