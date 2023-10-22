@@ -6,7 +6,7 @@ import Feed from './components/Feed/Feed';
 import SignIn from './components/Auth/SignIn/SignIn';
 import SignUp from './components/Auth/SignUp/SignUp';
 import { Profile } from './components/Profile/Profile';
-
+import { UploadForm } from './components/Upload/UploadForm';
 import { Slider } from './common/Slider/Slider';
 
 import './styles/style.css';
@@ -22,6 +22,7 @@ function App() {
       <Route path='/users'>
         <Route path=':profileSlug/' element={<Profile />} />
       </Route>
+      <Route path='/upload' element={<UploadForm />} />
     </Routes>
   //   <Slider data={[
   //     {url: '../../images/mountain_dawn.avif'},

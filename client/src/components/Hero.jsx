@@ -4,8 +4,8 @@ import { Slider } from "../common/Slider/Slider";
 const Hero = () => {
 
     return (
-        <div className="hero skeleton" id="hero">
-        <Slider>
+        // <div className="hero skeleton" id="hero">
+        <Slider parentWidth={500}>
             <div className="hero-text">
                 <h1 className="hero-logo">The best free photos</h1>
                 <p>Powered by creators</p>
@@ -18,7 +18,7 @@ const Hero = () => {
                 </form>
             </div>
         </Slider>
-        </div>
+        // </div>
     );
 }
 

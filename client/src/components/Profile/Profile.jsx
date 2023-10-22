@@ -13,7 +13,7 @@ import classes from './Profile.module.css';
 const baseUrl = "http://127.0.0.1:8000";
 
 export const Profile = () => {
-    let { profileSlug } = useParams();
+    const { profileSlug } = useParams();
 
     const [profile, setProfile] = useState(null);
     const [user, setUser] = useState(null);
