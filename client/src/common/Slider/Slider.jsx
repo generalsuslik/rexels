@@ -1,18 +1,8 @@
 import axios from "axios";
 import { useEffect, useState, useRef, useCallback } from "react";
 
-import SliderItem from "./SliderItem";
-
 import classes from "./Slider.module.css";
 
-
-const data = [
-    {url: 'http://127.0.0.1:8000/media/images/hero/green.jpg'},
-    {url: 'http://127.0.0.1:8000/media/images/hero/sunset1.avif'},
-    {url: 'http://127.0.0.1:8000/media/images/hero/sunset2.avif'},
-    {url: 'http://127.0.0.1:8000/media/images/hero/mountain_dawn.avif'},
-    {url: 'http://127.0.0.1:8000/media/images/hero/mountain_night.jpg'},
-]
 
 const slideContainerStyles = {
     height: "650px",
@@ -50,10 +40,10 @@ export const Slider = ({ children }) => {
     console.log(bestPhotos)
 
     const goToNext = useCallback(() => {
-        const isLastSlide = currentIndex === data.length - 1;
+        const isLastSlide = currentIndex === bestPhotos.length - 1;
         const newIndex = isLastSlide ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
-    }, [currentIndex, data]);
+    }, [currentIndex, bestPhotos]);
     
 
     const slideContainer = (index) => ({
