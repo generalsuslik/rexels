@@ -1,36 +1,9 @@
-import { useCallback, useEffect, useState, useRef } from "react";
+import axios from "axios";
+import { useEffect, useState, useRef, useCallback } from "react";
 
+import SliderItem from "./SliderItem";
 
-const slideStyles = {
-    width: "1920px",
-    height: "650px",
-    borderRadius: "10px",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-};
-
-const slidesContainerStyles = {
-    display: "flex",
-    height: "100%",
-    transition: "transform ease-out 0.3s",
-};
-
-const slidesContainerOverflowStyles = {
-    overflow: "hidden",
-    height: "100%",
-};
-
-const dotsContainerStyles = {
-    display: "flex",
-    justifyContent: "center",
-};
-
-
-const dotStyle = {
-    margin: "0 3px",
-    cursor: "pointer",
-    fontSize: "20px",
-};
+import classes from "./Slider.module.css";
 
 
 const data = [
@@ -41,38 +14,52 @@ const data = [
     {url: 'http://127.0.0.1:8000/media/images/hero/mountain_night.jpg'},
 ]
 
+const slideContainerStyles = {
+    height: "650px",
+    transition: "transform ease-out 2.3s",
+    width: "1920px",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    overflow: "hidden"
+};
 
-export const Slider = ({ parentWidth, children }) => {
+const GetBestPhotos = () => {
+    const [bestPhotos, setBestPhotos] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/photos/best/")
+            .then(res => {
+                setBestPhotos(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, []);
+
+    return bestPhotos;
+}
+
+
+export const Slider = ({ children }) => {
     const timerRef = useRef(null); 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const goToPrevious = () => {
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? data.length - 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
-    };
+    const bestPhotos = GetBestPhotos()
+
+    console.log(bestPhotos)
 
     const goToNext = useCallback(() => {
         const isLastSlide = currentIndex === data.length - 1;
         const newIndex = isLastSlide ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
     }, [currentIndex, data]);
+    
 
-    const goToSlide = (slideIndex) => {
-        setCurrentIndex(slideIndex);
-    };  
-
-    const getSlideStylesWithBackground = (slideIndex) => ({
-        ...slideStyles,
-        "backgroundImage": `url(${data[slideIndex].url})`,
-        width: "1920px",
+    const slideContainer = (index) => ({
+        ...slideContainerStyles, 
+        "backgroundImage": bestPhotos.length === 0 ? null : `url(http://127.0.0.1:8000${bestPhotos[index].image})`
     })
-
-    const getSlidesContainerStylesWithWidth = () => ({
-        ...slidesContainerStyles,
-        width: parentWidth * data.length,
-        transform: `translateX(${-(currentIndex * parentWidth)}px)`,
-    });
 
     useEffect(() => {
         if (timerRef.current){
@@ -81,29 +68,17 @@ export const Slider = ({ parentWidth, children }) => {
 
         timerRef.current = setTimeout(() => {
             goToNext();
-        }, 2000);
+        }, 10000);
 
         return () => clearInterval(timerRef.current);
     }, [goToNext]);
 
     return (
-        <div style={slideStyles}>
-            <div>
-                <div style={slidesContainerOverflowStyles}>
-                    <div style={getSlidesContainerStylesWithWidth()}>
-                        {data.map((_, index) => (
-                            <div key={index} style={getSlideStylesWithBackground(index)}>
-
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div style={dotsContainerStyles}>
-                    {data.map((slide, index) => {
-                        <div style={dotStyle} key={index} onClick={() => goToSlide(index)}>●</div>
-                    })}
-                </div>
+        <div className={classes.slider}>
+            <div className={classes.sliderInner}>
+                <div className="skeleton" style={slideContainer(currentIndex)}></div>   
             </div>
+            {children}
         </div>
     );
 }

@@ -11,12 +11,12 @@
 
 .hero-text{
     position: absolute;
-    top: 30%;
+    top: 20%;
     text-align: center;
     width: 100%;
 }
 
-.hero h1{
+.hero-text h1{
     font-size: 4.5rem;
     font-weight: 800;
     background: #ffffff;
@@ -25,7 +25,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-.hero p{
+.hero-text p{
     font-size: 2.7rem;
     font-weight: 500;
     background: #ffffff;
@@ -36,7 +36,7 @@
 
 .search-bar-container{
     position: absolute;
-    top: 65%;
+    top: 45%;
     width: 100%;
 }
 
@@ -187,7 +187,7 @@
         padding: 1.3rem 5%;
     }
 
-    .hero h1{
+    .hero-text h1{
         font-size: 3rem;
         font-weight: 700;
         background: #ffffff;
@@ -196,7 +196,7 @@
         -webkit-text-fill-color: transparent;
     }
     
-    .hero p{
+    .hero-text p{
         font-size: 1.7rem;
         font-weight: 400;
         background: #ffffff;
@@ -257,6 +257,10 @@
     
     .menu-icons{
         display: block;  
+    }
+
+    .navbar .dropdown__menu{
+        width: 100%;
     }
 
     .navbar a{

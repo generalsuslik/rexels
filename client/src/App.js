@@ -1,13 +1,10 @@
-import './App.css';
-import { Routes, Route, Navigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { Routes, Route } from "react-router-dom";
 
 import Feed from './components/Feed/Feed';
 import SignIn from './components/Auth/SignIn/SignIn';
 import SignUp from './components/Auth/SignUp/SignUp';
 import { Profile } from './components/Profile/Profile';
 import { UploadForm } from './components/Upload/UploadForm';
-import { Slider } from './common/Slider/Slider';
 
 import './styles/style.css';
 

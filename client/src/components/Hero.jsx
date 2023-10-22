@@ -5,7 +5,7 @@ const Hero = () => {
 
     return (
         // <div className="hero skeleton" id="hero">
-        <Slider parentWidth={500}>
+        <Slider>
             <div className="hero-text">
                 <h1 className="hero-logo">The best free photos</h1>
                 <p>Powered by creators</p>

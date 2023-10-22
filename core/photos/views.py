@@ -51,6 +51,14 @@ class PhotoList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    
+class BestPhotoList(APIView):
+    def get(self, request):
+        photos = models.Photo.objects.all().order_by('-likes')[:5]
+        serializer = serializers.PhotoSerializer(photos, many=True)
+        
+        return Response(serializer.data)
+    
 
 class PhotoDetail(APIView):
     def get_object(self, pk):

@@ -21,6 +21,8 @@ const Feed = () => {
             })
     }, []);
 
+
+
     return (
         <Layout> 
             <Hero />
