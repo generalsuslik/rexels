@@ -67,9 +67,10 @@ class PhotoList(APIView):
 
 class BestPhotoList(APIView):
     def get(self, request):
-        photos = models.Photo.objects.all().order_by("-likes")[:5]
-        # randomly_chosen_best_five_photos = sorted(random.sample(population=photos, k=5))
-        serializer = serializers.PhotoSerializer(photos, many=True)
+        # photos = models.Photo.objects.all().order_by("-likes")[:5]
+        photos = list(models.Photo.objects.all())
+        randomly_chosen_best_five_photos = random.sample(photos, 5)
+        serializer = serializers.PhotoSerializer(randomly_chosen_best_five_photos, many=True)
 
         return Response(serializer.data)
 
