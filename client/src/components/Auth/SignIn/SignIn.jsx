@@ -1,45 +1,11 @@
 import { useState } from "react";
 
 import Navbar from "../../../common/Navbar/Navbar";
-import SignUp from "../SignUp/SignUp";
 
 import registration from "../../../utils/registration";
 
 import './signin.css';
 
-
-const SignInForm = ({ handleLogin, username, setUsername, password, setPassword, loading, setLoading }) => {
-    return (
-        <form onSubmit={handleLogin}>
-            <h2>Sign In</h2>
-
-            <div className="input-box">
-                {/* <span className="icon"><i class="fa-solid fa-envelope"></i></span> */}
-                <span className="icon"><i class="fa-solid fa-user"></i></span>
-                <input type="text" required onChange={e => setUsername(e.target.value)} value={username}/>
-                <label>Username</label>
-            </div>
-
-            <div className="input-box">
-                <span className="icon"><i class="fa-solid fa-lock"></i></span>
-                <input type="password" required onChange={e => setPassword(e.target.value)} value={password}/>
-                <label>Password</label>
-            </div>
-
-            <div className="remember-forgot">
-                <label><input type="checkbox"/>Remember me</label>
-                <a href="#">Forgot password?</a>
-            </div>
-
-            <button type="submit" className="button">
-                {loading && (
-                    <span className="spinner-border spinner-border-sm"></span>
-                )}
-                    Sign In
-            </button>
-        </form>
-    );
-}
 
 const SignIn = () => {
     const [username, setUsername] = useState('');
@@ -69,19 +35,6 @@ const SignIn = () => {
         setPassword('');
     };
 
-    const [signInActive, setSignInActive] = useState(true);
-    const [signUpActive, setSignUpActive] = useState(false);
-
-    function handleSignInFormToggling() {
-        setSignInActive(true);
-        setSignUpActive(false);
-    }
-
-    function handleSignUpFormToggling() {
-        setSignInActive(false);
-        setSignUpActive(true);
-    }
-
     return (
 
         <div className="background">
@@ -91,9 +44,9 @@ const SignIn = () => {
                     <h2 className="logo">Rexels</h2>
                     <div className="text">
                         <h4>Welcome back!</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia, 
-                            aut numquam quam cumque, harum facere voluptatum pariatur, quia doloremque debitis. 
-                            Modi voluptatem accusamus cum id aspernatur dolorem labore architecto.</p>
+                        <p>Lorem ipsum dolor 
+                        sit amet consectetur adipisicing elit. Hic facilis repellat consequuntur excepturi optio 
+                        cupiditate rerum mollitia obcaecati rem tempore.</p>
                     </div>
 
                     <div className="social-icons">
@@ -110,7 +63,6 @@ const SignIn = () => {
                             <h2>Sign In</h2>
 
                             <div className="input-box">
-                                {/* <span className="icon"><i class="fa-solid fa-envelope"></i></span> */}
                                 <span className="icon"><i class="fa-solid fa-user"></i></span>
                                 <input type="text" required onChange={e => setUsername(e.target.value)} value={username}/>
                                 <label>Username</label>

@@ -5,24 +5,28 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('photos', '0008_profile_image'),
+        ("photos", "0008_profile_image"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='profile',
-            name='instagram_link',
+            model_name="profile",
+            name="instagram_link",
         ),
         migrations.AddField(
-            model_name='profile',
-            name='info',
+            model_name="profile",
+            name="info",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='social_links',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=200), blank=True, null=True, size=None),
+            model_name="profile",
+            name="social_links",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(max_length=200),
+                blank=True,
+                null=True,
+                size=None,
+            ),
         ),
     ]

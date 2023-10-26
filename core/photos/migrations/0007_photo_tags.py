@@ -5,15 +5,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('photos', '0006_alter_photo_image_bad_quality'),
+        ("photos", "0006_alter_photo_image_bad_quality"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='photo',
-            name='tags',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=200), blank=True, null=True, size=None),
+            model_name="photo",
+            name="tags",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(max_length=200),
+                blank=True,
+                null=True,
+                size=None,
+            ),
         ),
     ]
