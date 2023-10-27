@@ -33,6 +33,12 @@ ul{
     border: #555 solid 1px;
 }
 
+.dropdown__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .dropdown-menu::before{
     content: '';
     position: absolute;

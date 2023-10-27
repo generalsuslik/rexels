@@ -41,6 +41,7 @@
 }
 
 .search-bar{
+    position: relative;
     width: 100%;
     max-width: 500px;
     background: rgba(255, 255, 255, 0.4);
@@ -70,6 +71,8 @@
 }
 
 .search-bar button{
+    position: absolute;
+    right: .5rem;
     background: none;
     outline: none;
     border: 0;
@@ -318,7 +321,7 @@
     }
 
     .search-bar-container .search-bar{
-        width: 60%;
+        width: 80%;
         position: absolute;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -343,9 +346,9 @@
         position: fixed;
     }
 
-    .hero h1{
-        font-size: 1.7rem;
-        font-weight: 400;
+    .hero .hero-logo{
+        font-size: .9rem;
+        font-weight: 200;
         background: #ffffff;
         background-clip: text;
         -webkit-background-clip: text;
@@ -353,12 +356,24 @@
     }
     
     .hero p{
-        font-size: 1.2rem;
-        font-weight: 150;
+        font-size: .5rem;
+        font-weight: 50;
         background: #ffffff;
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+    
+    .search-bar-container{
+        width: 90%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 55%;
+    }
+
+    .search-bar-container .search-bar{
+        width: 100%;
     }
     
     .menu-icons{
@@ -422,4 +437,19 @@
     .search-bar-black-active{
         display: none;
     }
+}
+
+@media (max-width: 1400) and (max-height: 768) {
+    .search-bar-container{
+        width: 90%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 85%;
+    }
+
+    .search-bar-container .search-bar{
+        width: 100%;
+    }
+    
 }

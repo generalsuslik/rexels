@@ -48,6 +48,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
 
 class PhotoList(APIView):
     """Simple list of all photos"""
+
     parser_classes = (MultiPartParser, FormParser)
 
     def get(self, request):
@@ -67,10 +68,11 @@ class PhotoList(APIView):
 
 class BestPhotoList(APIView):
     def get(self, request):
-        # photos = models.Photo.objects.all().order_by("-likes")[:5]
         photos = list(models.Photo.objects.all())
         randomly_chosen_best_five_photos = random.sample(photos, 5)
-        serializer = serializers.PhotoSerializer(randomly_chosen_best_five_photos, many=True)
+        serializer = serializers.PhotoSerializer(
+            randomly_chosen_best_five_photos, many=True
+        )
 
         return Response(serializer.data)
 

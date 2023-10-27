@@ -25,7 +25,7 @@ Run the backend
 
 Go to frontend and run it 
 ### `cd ..`
-### `cd frontend`
+### `cd client`
 ### `npm install`
 ### `npm run build`
 ### `npm start`
