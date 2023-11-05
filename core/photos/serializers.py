@@ -58,8 +58,7 @@ class PhotoSerializer(serializers.ModelSerializer):
         model = models.Photo
         fields = "__all__"
 
-    @staticmethod
-    def get_image_url(obj):
+    def get_image_url(self, obj):
         return obj.image.url
 
 
