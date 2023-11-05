@@ -2,12 +2,19 @@ import classes from './Profile.module.css';
 import { LetteredAvatar } from '../../common/LetteredAvatar/LetteredAvatar';
 import { DropdownItem } from '../../common/Dropdown/DropdownItem/DropdownItem';
 import { DropdownMenu } from '../../common/Dropdown/DropdownMenu/DropdownMenu';
+import { useEffect, useState } from 'react';
 
 
-export const ProfileHero = ({ profileSlug, profile, firstName, lastName }) => {
+export const ProfileHero = ({ profileSlug, profile }) => {
 
-    console.log(firstName, lastName);
     const socialLinks = profile.social_links
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+
+    // useEffect(() => {
+    //     setFirstName(profile?.user.first_name);
+    //     setLastName(profile?.user.last_name);
+    // })
 
     return (
         <div className={classes.hero__mainWrapper}>
