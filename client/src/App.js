@@ -21,12 +21,6 @@ function App() {
       </Route>
       <Route path='/upload' element={<UploadForm />} />
     </Routes>
-  //   <Slider data={[
-  //     {url: '../../images/mountain_dawn.avif'},
-  //     {url: '../../images/sunset1.avif'},
-  //     {url: '../../images/green.jpg'},
-  //     {url: '../../images/mountain_night.jpg'}
-  // ]} />
   );
 }
 
