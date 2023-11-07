@@ -69,7 +69,7 @@ class PhotoList(APIView):
 class BestPhotoList(APIView):
     def get(self, request):
         photos = list(models.Photo.objects.all())
-        randomly_chosen_best_five_photos = random.sample(photos, 5)
+        randomly_chosen_best_five_photos = random.sample(photos, min(5, len(photos)))
         serializer = serializers.PhotoSerializer(
             randomly_chosen_best_five_photos, many=True
         )
@@ -77,21 +77,23 @@ class BestPhotoList(APIView):
         return Response(serializer.data)
 
 
-class PhotoDetail(APIView):
-    def get_object(self, pk):
-        try:
-            return models.Photo.objects.get(pk=pk)
-        except models.Photo.DoesNotExist:
-            raise Http404
+def get_object(pk):
+    try:
+        return models.Photo.objects.get(pk=pk)
+    except models.Photo.DoesNotExist:
+        raise Http404
 
-    def get(self, request, pk):
-        photo = self.get_object(pk)
+
+class PhotoDetail(APIView):
+    @staticmethod
+    def get(pk):
+        photo = get_object(pk)
         serializer = serializers.PhotoSerializer(photo)
 
         return Response(serializer.data)
 
     def put(self, request, pk):
-        photo = self.get_object(pk)
+        photo = get_object(pk)
         serializer = serializers.PhotoSerializer(photo, data=request.data)
 
         if serializer.is_valid():
@@ -101,7 +103,7 @@ class PhotoDetail(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
-        photo = self.get_object(pk)
+        photo = get_object(pk)
         photo.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
