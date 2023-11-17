@@ -6,7 +6,7 @@ from django.utils.text import slugify
 
 class Photo(models.Model):
     image = models.ImageField(
-        upload_to="images/good_quality/%Y/%m/", null=False, blank=False
+        upload_to="images/images/%Y/%m/", null=False, blank=False
     )
     likes = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
